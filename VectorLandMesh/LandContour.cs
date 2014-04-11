@@ -5,8 +5,23 @@ using System.Text;
 using System.Windows;
 namespace VectorLandMesh
 {
-    class LandContour
+    namespace Land
     {
-        private List<Point> points;
+        public class LandContour
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            private List<Point> points;
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="seed"></param>
+            /// <param name="leve">level used to scale vectors on the Contours</param>
+            public LandContour(Random seed,int level)
+            {
+                // TODO: Complete member initialization
+            }
+        }
     }
 }
