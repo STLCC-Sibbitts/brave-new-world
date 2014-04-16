@@ -41,8 +41,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LandContour.cs" />
-    <Compile Include="LandMesh.cs" />
+    <Compile Include="Land\LandContour.cs" />
+    <Compile Include="Land\LandMesh.cs" />
+    <Compile Include="Land\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
