@@ -15,12 +15,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+//using System.Convert;
 
 namespace Brave_New_World
 {
     class Biome
     {
-        // climate, latitude, altitude, slope, substrate, aspect
         // Constants
         const int SCREEN_HEIGHT = 500;
         const int EQUATOR = 100;
@@ -30,24 +30,42 @@ namespace Brave_New_World
         // Physical attributes received from mesh generator
         private int roundsOfGeneration;
         Point[] m_locations;
-        int m_customKey;
+        string m_customKey = "";
 
-
+        // climate, latitude, altitude, slope, substrate, aspect
         // constructor
         public Biome(Point[] locations, int rounds)
         {
-            int altitude;
-            string latitude;
-            string slope;
+            string altitude = "";
+            string aspect = "";
+            string latitude = "";
+            string slope = "";
+            string substrate = "";
+
+            // Substrate(int latitude, int altitude, int slope)
+
             m_locations = locations;
             roundsOfGeneration = rounds;
 
             for(int i = 0; i < m_locations.Length; i++)
             {
                 altitude = Altitude(m_locations[i]);
+                aspect = Aspect(i);
                 latitude = Latitude(m_locations[i]);
                 slope = Slope(m_locations[i]);
+                substrate = Substrate(Convert.ToInt16(latitude), Convert.ToInt16(altitude), Convert.ToInt16(slope)); //"";
             }
+
+            SetCustomKey(latitude, altitude, slope, substrate, aspect);
+        }
+
+        private void SetCustomKey(string latitude, string altitude, string slope, string substrate, string aspect)
+        {
+            m_customKey = latitude + altitude + slope + substrate + aspect;
+        }
+        public string GetCustomKey()
+        {
+            return m_customKey;
         }
 
         // member functions
@@ -60,9 +78,9 @@ namespace Brave_New_World
             }
         }
 
-        public int Altitude(Point p)
+        public string Altitude(Point p)
         {
-            return  (MAX_CONTOUR - roundsOfGeneration);
+            return  (MAX_CONTOUR - roundsOfGeneration).ToString();
         }
 
         public string Aspect(int locationIndex)
@@ -106,16 +124,22 @@ namespace Brave_New_World
             string slope;
             int x = p.X;
             int y = p.Y;
-            if (y / x >= 10)
-                slope = "03";
-            else if ((y / x < 10) && (y / x >= 5))
-                slope = "02";
-            else if (y / x < 5)
-                slope = "01";
+            if (x == 0)
+                throw new System.DivideByZeroException();
             else
-                slope = "00";
+            {
+                if (y / x >= 10)
+                    slope = "03";
+                else if ((y / x < 10) && (y / x >= 5))
+                    slope = "02";
+                else if (y / x < 5)
+                    slope = "01";
+                else
+                    slope = "00";
             return (slope); // This should work because each point in our point array represents the change
                                 // from the prior point (in other words, the difference between point 1 and point 2.
+            }
+
         }
 
         public string Substrate(int latitude, int altitude, int slope)
