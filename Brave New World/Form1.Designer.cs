@@ -1,4 +1,4 @@
-﻿namespace Brave_New_World
+﻿namespace ClassProject
 {
     partial class Form1
     {
@@ -28,40 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.picboxDrawing = new System.Windows.Forms.PictureBox();
+            this.btnDraw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picboxDrawing)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(600, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picboxDrawing
             // 
             this.picboxDrawing.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.picboxDrawing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picboxDrawing.Location = new System.Drawing.Point(3, 12);
+            this.picboxDrawing.Location = new System.Drawing.Point(0, 0);
             this.picboxDrawing.Name = "picboxDrawing";
-            this.picboxDrawing.Size = new System.Drawing.Size(564, 389);
-            this.picboxDrawing.TabIndex = 3;
+            this.picboxDrawing.Size = new System.Drawing.Size(625, 486);
+            this.picboxDrawing.TabIndex = 0;
             this.picboxDrawing.TabStop = false;
+            this.picboxDrawing.Click += new System.EventHandler(this.picboxDrawing_Click);
+            // 
+            // btnDraw
+            // 
+            this.btnDraw.Location = new System.Drawing.Point(631, 71);
+            this.btnDraw.Name = "btnDraw";
+            this.btnDraw.Size = new System.Drawing.Size(101, 23);
+            this.btnDraw.TabIndex = 1;
+            this.btnDraw.Text = "Magic!!!";
+            this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 422);
+            this.ClientSize = new System.Drawing.Size(761, 498);
+            this.Controls.Add(this.btnDraw);
             this.Controls.Add(this.picboxDrawing);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picboxDrawing)).EndInit();
             this.ResumeLayout(false);
@@ -70,8 +68,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+       
         private System.Windows.Forms.PictureBox picboxDrawing;
+        private System.Windows.Forms.Button btnDraw;
+
+
 
     }
 }

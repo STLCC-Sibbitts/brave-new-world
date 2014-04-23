@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Brave_New_World.Properties
+namespace FormWorp.Properties
 {
 
 
