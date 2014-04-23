@@ -3,37 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace VectorLandMesh
+namespace VectorLandMesh.Land
 {
-        namespace Land
+    public class Map
     {
-        public class Map
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Random seed = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static float[] Box { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        public static int Detail { get; set; }
+        public static void InitializeMap(int detail, float[] box)
         {
-            /// <summary>
-            /// 
-            /// </summary>
-            private static Random seed = null;
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="seedValue"></param>
-            public static void InitializeSeed(int seedValue)
-            {
+            Detail = detail;
+            Box = box;
+            seed = new Random();
+        }
+        public static void InitializeMap(int detail, float[] box, int seedValue)
+        {
+            InitializeMap(detail, box);
+            seed = new Random(seedValue);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void InitializeSeed()
+        {
 
-                seed = new Random(seedValue);
-            }
-            public static void InitializeSeed()
+            seed = new Random();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Random MapSeed
+        {
+            get
             {
-
-                seed = new Random();
-            }
-            public static Random MapSeed
-            {
-                get
-                {
-                    return seed;
-                }
+                return seed;
             }
         }
+
+
+
+        
     }
+
 }
